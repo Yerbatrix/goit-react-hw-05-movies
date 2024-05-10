@@ -1,3 +1,10 @@
+import React from 'react';
+import { Searchbar } from '../components/Searchbar';
+
 export const Movies = () => {
-  return <div>Here will be Searchbar and Movies</div>;
+  return (
+    <div>
+      <Searchbar />
+    </div>
+  );
 };
