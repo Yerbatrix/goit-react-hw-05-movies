@@ -25,7 +25,17 @@ export const Home = () => {
       <h1>Trending Movies Today</h1>
       <ul>
         {trendingMovies.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
+          <div key={movie.id} className="movie-tile">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <div className="movie-info">
+              <h2>{movie.title}</h2>
+              <p>{movie.overview}</p>
+              <p>Popularity: {movie.popularity}</p>
+            </div>
+          </div>
         ))}
       </ul>
     </div>
