@@ -33,11 +33,7 @@ export const TrendingMovies = () => {
                 alt={movie.title}
                 className={css.moviePoster}
               />
-              <div className={css.movieInfo}>
-                <h2>{movie.title}</h2>
-                <p>{movie.overview}</p>
-                <p>Popularity: {movie.popularity}</p>
-              </div>
+              <h2 className={css.title}>{movie.title}</h2>
             </div>
           </li>
         ))}

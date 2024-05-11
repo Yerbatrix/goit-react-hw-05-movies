@@ -18,7 +18,7 @@ export const App = () => {
   return (
     <div>
       <nav>
-        <StyledLink to="/" activeClassName={css.active}>
+        <StyledLink to="/goit-react-hw-05-movies" activeClassName={css.active}>
           Home
         </StyledLink>
         <StyledLink to="/movies" activeClassName={css.active}>
@@ -27,7 +27,7 @@ export const App = () => {
       </nav>
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/goit-react-hw-05-movies" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
       </Routes>
     </div>

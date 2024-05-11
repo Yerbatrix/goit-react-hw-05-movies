@@ -29,7 +29,7 @@ const SearchMovies = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={css.searchform} onSubmit={handleSubmit}>
         <input
           type="text"
           autoComplete="off"
@@ -37,8 +37,11 @@ const SearchMovies = () => {
           placeholder="Search desired movies"
           value={query}
           onChange={handleChange}
+          className={css.searchbar}
         />
-        <button type="submit">Search</button>
+        <button className={css.searchbutton} type="submit">
+          Search
+        </button>
       </form>
       <ul className={css.movies}>
         {searchResults.map(movie => (
@@ -50,9 +53,7 @@ const SearchMovies = () => {
                 className={css.moviePoster}
               />
               <div className={css.movieInfo}>
-                <h2>{movie.title}</h2>
-                <p>{movie.overview}</p>
-                <p>Popularity: {movie.popularity}</p>
+                <h2 className={css.title}>{movie.title}</h2>
               </div>
             </div>
           </li>
