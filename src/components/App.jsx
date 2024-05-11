@@ -1,13 +1,29 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import { Home } from '../pages/Home';
 import { Movies } from '../pages/Movies';
+import css from './App.module.css';
+import styled from 'styled-components';
+
+const StyledLink = styled(NavLink)`
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+
+  &.active {
+    color: orange;
+  }
+`;
 
 export const App = () => {
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
+      <nav className={css.nav}>
+        <StyledLink to="/" activeClassName={css.active}>
+          Home
+        </StyledLink>
+        <StyledLink to="/movies" activeClassName={css.active}>
+          Movies
+        </StyledLink>
       </nav>
 
       <Routes>

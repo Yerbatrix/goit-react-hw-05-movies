@@ -1,0 +1,33 @@
+.trendingMovies {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movieTile {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 500px;
+}
+
+.movieTile:hover,
+.movieTile:focus {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movieInfo {
+  margin-left: 20px;
+}
+
+.movieInfo h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.movieInfo p {
+  font-size: 1rem;
+}

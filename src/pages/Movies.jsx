@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import css from './Movies.module.css';
 
 import API_KEY from '../config';
 import { Searchbar } from '../components/Searchbar';
@@ -23,21 +24,24 @@ export const Movies = () => {
     <div>
       <h1>Movies</h1>
       <Searchbar onSearch={handleSearch} />
-      <div className="movie-grid">
+      <ul className={css.movies}>
         {searchResults.map(movie => (
-          <div key={movie.id} className="movie-tile">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <div className="movie-info">
-              <h2>{movie.title}</h2>
-              <p>{movie.overview}</p>
-              <p>Popularity: {movie.popularity}</p>
+          <li key={movie.id} className={css.movieTile}>
+            <div className={css.movieTileContent}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className={css.moviePoster}
+              />
+              <div className={css.movieInfo}>
+                <h2>{movie.title}</h2>
+                <p>{movie.overview}</p>
+                <p>Popularity: {movie.popularity}</p>
+              </div>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
