@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import css from './Movies.module.css';
+import API_KEY from '../../config';
+import css from './SearchMovies.module.css';
 
-import API_KEY from '../config';
-import { Searchbar } from '../components/Searchbar';
-
-export const Movies = () => {
+const SearchMovies = () => {
+  const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async query => {
@@ -13,17 +12,34 @@ export const Movies = () => {
       const response = await axios.get(
         `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}`
       );
-      console.log(response);
       setSearchResults(response.data.results);
     } catch (error) {
       console.log('Error searching movies', error);
     }
   };
 
+  const handleChange = event => {
+    setQuery(event.target.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    handleSearch(query);
+  };
+
   return (
     <div>
-      <h1>Movies</h1>
-      <Searchbar onSearch={handleSearch} />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search desired movies"
+          value={query}
+          onChange={handleChange}
+        />
+        <button type="submit">Search</button>
+      </form>
       <ul className={css.movies}>
         {searchResults.map(movie => (
           <li key={movie.id} className={css.movieTile}>
@@ -45,3 +61,5 @@ export const Movies = () => {
     </div>
   );
 };
+
+export default SearchMovies;
