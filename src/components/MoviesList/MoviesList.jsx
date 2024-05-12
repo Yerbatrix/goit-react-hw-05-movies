@@ -1,21 +1,23 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import css from './MoviesList.module.css';
 
-const MoviesList = ({ searchResults }) => {
+const MoviesList = ({ movies }) => {
   return (
     <ul className={css.movies}>
-      {searchResults.map(movie => (
+      {movies.map(movie => (
         <li key={movie.id} className={css.movieTile}>
-          <div className={css.movieTileContent}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              className={css.moviePoster}
-            />
-            <div className={css.movieInfo}>
-              <h2 className={css.title}>{movie.title}</h2>
+          <Link to={`/movies/${movie.id}`}>
+            <div className={css.movieTileContent}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className={css.moviePoster}
+              />
+              <div className={css.movieInfo}>
+                <h2 className={css.title}>{movie.title}</h2>
+              </div>
             </div>
-          </div>
+          </Link>
         </li>
       ))}
     </ul>

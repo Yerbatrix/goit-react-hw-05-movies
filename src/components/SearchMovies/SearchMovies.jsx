@@ -18,14 +18,10 @@ const SearchMovies = () => {
     }
   };
 
-  const handleSubmit = value => {
-    handleSearch(value);
-  };
-
   return (
     <div>
-      <SearchForm onSubmit={handleSubmit} />
-      <MoviesList searchResults={searchResults} />
+      <SearchForm onSubmit={handleSearch} />
+      <MoviesList movies={searchResults} />
     </div>
   );
 };
