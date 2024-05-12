@@ -1,0 +1,28 @@
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movieTile {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 500px;
+}
+
+.movieTile:hover,
+.movieTile:focus {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0, auto;
+}
