@@ -3,7 +3,7 @@ import { Home } from '.././pages/Home/Home';
 import { Movies } from '.././pages/Movies/Movies';
 import css from './App.module.css';
 import styled from 'styled-components';
-import NotFound from './NotFound/NotFound';
+import NotFound from '../pages/NotFound/NotFound';
 
 const StyledLink = styled(NavLink)`
   color: white;
