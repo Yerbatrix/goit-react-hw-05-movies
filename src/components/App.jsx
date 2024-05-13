@@ -1,6 +1,6 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
-import { Home } from '.././pages/Home/Home';
-import { Movies } from '.././pages/Movies/Movies';
+import { Home } from '../pages/Home/Home';
+import { Movies } from '../pages/Movies/Movies';
 import css from './App.module.css';
 import styled from 'styled-components';
 import NotFound from '../pages/NotFound/NotFound';

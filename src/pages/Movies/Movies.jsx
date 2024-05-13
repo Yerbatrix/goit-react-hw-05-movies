@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchMovies from '../../components/SearchMovies/SearchMovies';
+import SearchMovies from './SearchMovies/SearchMovies';
 
 export const Movies = () => {
   return (

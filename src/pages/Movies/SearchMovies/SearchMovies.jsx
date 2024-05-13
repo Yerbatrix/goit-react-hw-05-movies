@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import API_KEY from '../../config';
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesList from '../MoviesList/MoviesList';
+import API_KEY from '../../../config';
+import SearchForm from './SearchForm/SearchForm';
+import MoviesList from './MoviesList/MoviesList';
 
 const SearchMovies = () => {
   const [searchResults, setSearchResults] = useState([]);
