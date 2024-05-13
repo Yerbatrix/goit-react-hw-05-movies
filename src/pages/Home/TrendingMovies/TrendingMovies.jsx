@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import API_KEY from '../../../config';
+import API_KEY from 'config';
 import css from './TrendngMovies.module.css';
 
 export const TrendingMovies = () => {

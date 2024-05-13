@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import API_KEY from '../../../../config';
 import css from './MovieDetails.module.css';
@@ -8,7 +9,6 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(movieDetails);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -57,6 +57,18 @@ const MovieDetails = () => {
           <p className={css.overview}>{movieDetails.overview}</p>
           <p className={css.rating}>Rating: {movieDetails.vote_average}</p>
         </div>
+      </div>
+      <div>
+        <p>Additional information</p>
+        <ul>
+          <li>
+            <Link to="cast">Read about Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Read some Reviews</Link>
+          </li>
+        </ul>
+        <Outlet />
       </div>
     </div>
   );
