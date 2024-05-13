@@ -7,20 +7,32 @@ import css from './Reviews.module.css';
 export const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const fetchCast = async () => {
+    const fetchReviews = async () => {
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`
         );
         setReviews(response.data.results);
+        setLoading(false);
       } catch (error) {
-        console.log('Error fetching trending movies', error);
+        console.log('Error fetching reviews', error);
+        setLoading(false);
       }
     };
 
-    fetchCast();
+    fetchReviews();
   }, [movieId]);
+
+  if (loading) {
+    return <div>Loading reviews...</div>;
+  }
+
+  if (reviews.length === 0) {
+    return <div>No reviews found for this movie yet.</div>;
+  }
 
   return (
     <div className={css.reviewsContainer}>

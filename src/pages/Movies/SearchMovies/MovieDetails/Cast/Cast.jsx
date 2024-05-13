@@ -9,6 +9,8 @@ export const Cast = () => {
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchCast = async () => {
       try {
@@ -16,13 +18,23 @@ export const Cast = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`
         );
         setCast(response.data.cast);
+        setLoading(false);
       } catch (error) {
-        console.log('Error fetching trending movies', error);
+        console.log('Error fetching cast', error);
+        setLoading(false);
       }
     };
 
     fetchCast();
   }, [movieId]);
+
+  if (loading) {
+    return <div>Loading cast...</div>;
+  }
+
+  if (cast.length === 0) {
+    return <div>No cast found for this movie.</div>;
+  }
 
   return (
     <div className={css.castContainer}>
