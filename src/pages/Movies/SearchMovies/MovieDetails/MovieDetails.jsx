@@ -8,6 +8,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  console.log(movieDetails);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -16,7 +17,6 @@ const MovieDetails = () => {
           `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`
         );
         setMovieDetails(response.data);
-        console.log(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching movie details:', error);
@@ -40,21 +40,23 @@ const MovieDetails = () => {
       <button className={css.goBackButton}>
         <span className={css.goBack}>← Go back</span>
       </button>
-      <div>
+      <div className={css.movieDetailsContainer}>
         <img
           src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
           alt={movieDetails.title}
-          className={movieDetails.moviePoster}
+          className={css.moviePoster}
         />
-        <h2 className={css.title}>{movieDetails.title}</h2>
-        <p className={css.overview}>{movieDetails.overview}</p>
-        <p className={css.releaseDate}>
-          Release Date: {movieDetails.release_date}
-        </p>
-        <p className={css.rating}>Rating: {movieDetails.vote_average}</p>
-      </div>
-      <div>
-        <p>Additional Information</p>
+        <div className={css.movieInfo}>
+          <h2 className={css.title}>
+            {movieDetails.title} (
+            {new Date(movieDetails.release_date).getFullYear()})
+          </h2>
+          <p className={css.genres}>
+            Genres: {movieDetails.genres.map(genre => genre.name).join(', ')}
+          </p>
+          <p className={css.overview}>{movieDetails.overview}</p>
+          <p className={css.rating}>Rating: {movieDetails.vote_average}</p>
+        </div>
       </div>
     </div>
   );

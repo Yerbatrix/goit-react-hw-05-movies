@@ -5,25 +5,40 @@
 }
 
 .goBackButton {
-  background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 16px;
+  top: 10px;
+  left: 10px;
 }
 
 .goBack {
-  color: #007bff; /* lub dowolny kolor, który chcesz użyć */
+  color: #007bff;
+}
+
+.movieDetailsContainer {
+  display: flex;
 }
 
 .moviePoster {
   width: 300px;
   height: auto;
-  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.movieInfo {
+  flex: 1;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.genres {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .overview {
@@ -32,12 +47,7 @@
   margin-bottom: 20px;
 }
 
-.releaseDate,
 .rating {
   font-size: 16px;
   margin-bottom: 10px;
-}
-
-.rating {
-  color: #28a745; /* lub dowolny kolor, który chcesz użyć */
 }
