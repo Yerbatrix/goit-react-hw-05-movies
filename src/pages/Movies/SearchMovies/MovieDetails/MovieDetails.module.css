@@ -1,15 +1,13 @@
 .Container {
   max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
 }
 
 .goBackButton {
-  border: none;
   cursor: pointer;
   font-size: 16px;
-  top: 10px;
-  left: 10px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .goBack {
@@ -21,7 +19,7 @@
 }
 
 .moviePoster {
-  width: 300px;
+  width: 400px;
   height: auto;
   margin-right: 20px;
 }
@@ -49,5 +47,15 @@
 
 .rating {
   font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.additionalInformation {
+  margin-top: 30px;
+  border-top: 2px solid #ccc;
+  padding-top: 20px;
+}
+
+.additionalInformation p {
   margin-bottom: 10px;
 }

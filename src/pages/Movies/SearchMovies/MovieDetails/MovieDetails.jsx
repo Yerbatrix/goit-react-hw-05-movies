@@ -6,6 +6,8 @@ import API_KEY from '../../../../config';
 import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -42,7 +44,11 @@ const MovieDetails = () => {
       </button>
       <div className={css.movieDetailsContainer}>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+          src={
+            movieDetails.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
+              : defaultImg
+          }
           alt={movieDetails.title}
           className={css.moviePoster}
         />
@@ -59,7 +65,7 @@ const MovieDetails = () => {
         </div>
       </div>
       <div>
-        <p>Additional information</p>
+        <p className={css.additionalInformation}>Additional information</p>
         <ul>
           <li>
             <Link to="cast">Read about Cast</Link>
