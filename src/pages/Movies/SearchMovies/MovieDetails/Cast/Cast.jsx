@@ -19,7 +19,7 @@ export const Cast = () => {
     };
 
     fetchCast();
-  }, []);
+  }, [movieId]);
 
   return (
     <div>
