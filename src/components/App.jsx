@@ -4,7 +4,7 @@ import { Movies } from '.././pages/Movies/Movies';
 import css from './App.module.css';
 import styled from 'styled-components';
 import NotFound from '../pages/NotFound/NotFound';
-import MovieDetails from './MovieDetails/MovieDetails';
+import MovieDetails from '../pages/Movies/SearchMovies/MovieDetails/MovieDetails';
 
 const StyledLink = styled(NavLink)`
   color: white;
@@ -31,7 +31,10 @@ export const App = () => {
       <Routes>
         <Route path="/goit-react-hw-05-movies" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route></Route>
+          <Route></Route>
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import API_KEY from '../../config';
+import API_KEY from '../../../config';
 import css from './TrendngMovies.module.css';
 
 export const TrendingMovies = () => {
@@ -27,14 +28,16 @@ export const TrendingMovies = () => {
       <ul className={css.trendingMovies}>
         {trendingMovies.map(movie => (
           <li key={movie.id} className={css.movieTile}>
-            <div className={css.movieTileContent}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className={css.moviePoster}
-              />
-              <h2 className={css.title}>{movie.title}</h2>
-            </div>
+            <Link to={`/movies/${movie.id}`}>
+              <div className={css.movieTileContent}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className={css.moviePoster}
+                />
+                <h2 className={css.title}>{movie.title}</h2>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

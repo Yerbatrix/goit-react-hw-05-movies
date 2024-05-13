@@ -1,0 +1,43 @@
+.Container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.goBackButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.goBack {
+  color: #007bff; /* lub dowolny kolor, który chcesz użyć */
+}
+
+.moviePoster {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.overview {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.releaseDate,
+.rating {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.rating {
+  color: #28a745; /* lub dowolny kolor, który chcesz użyć */
+}
