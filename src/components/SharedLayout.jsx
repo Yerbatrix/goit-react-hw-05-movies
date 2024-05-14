@@ -28,10 +28,13 @@ export const SharedLayout = () => {
           Awesome Movie Finder
         </Logo>
         <nav>
-          <StyledLink to="/" activeClassName={css.active}>
+          <StyledLink
+            to="/goit-react-hw-05-movies"
+            activeClassName={css.active}
+          >
             Home
           </StyledLink>
-          <StyledLink to="/movies" activeClassName={css.active}>
+          <StyledLink to="movies" activeClassName={css.active}>
             Movies
           </StyledLink>
         </nav>
