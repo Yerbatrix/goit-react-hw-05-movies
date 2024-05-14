@@ -8,7 +8,7 @@ const MoviesList = ({ movies }) => {
     <ul className={css.movies}>
       {movies.map(movie => (
         <li key={movie.id} className={css.movieTile}>
-          <Link to={`movies/${movie.id}`}>
+          <Link to={`${movie.id}`}>
             <div className={css.movieTileContent}>
               <img
                 src={
