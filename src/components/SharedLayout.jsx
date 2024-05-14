@@ -25,6 +25,7 @@ export const SharedLayout = () => {
         <nav>
           <StyledLink
             to="/goit-react-hw-05-movies"
+            end
             activeClassName={css.active}
           >
             Home
