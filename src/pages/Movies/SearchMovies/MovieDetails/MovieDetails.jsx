@@ -78,10 +78,14 @@ const MovieDetails = () => {
         <p className={css.additionalInformation}>Additional information</p>
         <ul>
           <li>
-            <Link to="cast">Read about Cast</Link>
+            <Link to="cast" state={{ from: location.state?.from }}>
+              Read about Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Read some Reviews</Link>
+            <Link to="reviews" state={{ from: location.state?.from }}>
+              Read some Reviews
+            </Link>
           </li>
         </ul>
         <Outlet />
