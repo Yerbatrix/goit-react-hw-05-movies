@@ -1,14 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import css from './MoviesList.module.css';
 
 const MoviesList = ({ movies }) => {
+  const location = useLocation();
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
   return (
     <ul className={css.movies}>
       {movies.map(movie => (
         <li key={movie.id} className={css.movieTile}>
-          <Link to={`${movie.id}`}>
+          <Link to={`${movie.id}`} state={{ from: location }}>
             <div className={css.movieTileContent}>
               <img
                 src={

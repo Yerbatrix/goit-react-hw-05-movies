@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import API_KEY from '../../../../config';
@@ -9,6 +9,8 @@ const MovieDetails = () => {
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
   const { movieId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,6 +31,14 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [movieId]);
 
+  const handleGoBack = () => {
+    if (location.state && location.state.from) {
+      navigate(location.state.from);
+    } else {
+      navigate('/');
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -39,7 +49,7 @@ const MovieDetails = () => {
 
   return (
     <div className={css.Container}>
-      <button className={css.goBackButton}>
+      <button className={css.goBackButton} onClick={handleGoBack}>
         <span className={css.goBack}>← Go back</span>
       </button>
       <div className={css.movieDetailsContainer}>

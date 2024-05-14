@@ -28,7 +28,10 @@ export const TrendingMovies = () => {
       <ul className={css.trendingMovies}>
         {trendingMovies.map(movie => (
           <li key={movie.id} className={css.movieTile}>
-            <Link to={`movies/${movie.id}`}>
+            <Link
+              to={`movies/${movie.id}`}
+              state={{ from: '/goit-react-hw-05-movies' }}
+            >
               <div className={css.movieTileContent}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

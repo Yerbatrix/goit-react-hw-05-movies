@@ -21,12 +21,7 @@ export const SharedLayout = () => {
   return (
     <Container>
       <Header>
-        <Logo>
-          <span role="img" aria-label="computer icon">
-            💻
-          </span>{' '}
-          Awesome Movie Finder
-        </Logo>
+        <Logo>AMF Awesome Movie Finder</Logo>
         <nav>
           <StyledLink
             to="/goit-react-hw-05-movies"
